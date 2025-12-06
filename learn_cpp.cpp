@@ -11,7 +11,6 @@ int main() {
 	//Start
 
 	chapter5Quiz();
-
 	//End
 
 	auto end = std::chrono::high_resolution_clock::now();
