@@ -4,13 +4,16 @@
 #include <cstdint>
 
 
+
 int main() {	
 
 	auto start = std::chrono::high_resolution_clock::now();
 
 	//Start
+	int x{-7};
+	std::cout << x % 6;
 
-	chapter5Quiz();
+
 	//End
 
 	auto end = std::chrono::high_resolution_clock::now();
