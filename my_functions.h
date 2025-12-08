@@ -26,3 +26,30 @@ std::string getName(int num);
 int getAge(std::string_view name);
 void printOldest(std::string_view name1, int age1, std::string_view name2, int age2);
 void chapter5Quiz();
+std::int64_t powint_safe(std::int64_t base, int exp);
+
+constexpr bool isEven(int x){
+    return !(x % 2);
+}
+void chapter6_3Quiz();
+
+//custom implementation of abs function (std::abs is not a constexpr function until C++23)
+template <typename Abs>
+constexpr Abs constAbs(Abs x){
+	return (x < 0 ? -x : x);
+}
+
+constexpr bool epsilonRelative(double x, double y, double epsilonRel){
+	return (constAbs(x - y) <= (std::max(constAbs(x), constAbs(y)) * epsilonRel));
+}
+
+constexpr bool epsilonAbsRel(double x, double y, double epsilonRel, double epsilonAbs){
+	if(constAbs(x - y) <= epsilonAbs){
+		return true;
+	}
+
+	return epsilonRelative(x, y, epsilonRel);
+}
+
+
+

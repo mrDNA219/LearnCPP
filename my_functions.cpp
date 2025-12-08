@@ -5,6 +5,9 @@
 #include <bitset>
 #include <string>
 #include <type_traits>
+#include <limits>
+#include <algorithm>
+
 
 int getNumber() {
 	std::cout << "Please enter an integer: ";
@@ -197,9 +200,9 @@ std::bitset<8> binaryAdd(std::bitset<8> byte1, std::bitset<8> byte2) {
 	std::bitset<8> sum{};
 	bool carry{ false };
 	for (int i = 0; i < 8; i++) {
-		bool bitA{ byte1[i] };
-		bool bitB{ byte2[i] };
-		sum[i] = bitA ^ bitB ^ carry;
+		bool bitA{ byte1[static_cast<size_t>(i)] };
+		bool bitB{ byte2[static_cast<size_t>(i)] };
+		sum[static_cast<size_t>(i)] = bitA ^ bitB ^ carry;
 		carry = (bitA && bitB) || (bitA && carry) || (bitB && carry);
 	}
 	return sum;
@@ -253,3 +256,53 @@ void chapter5Quiz() {
 
 }
 
+std::int64_t powint_safe(std::int64_t base, int exp){
+
+	if(base == 0){
+		return (exp == 0) ? 1 : 0;
+	}
+
+	std::int64_t result{ 1 };
+	bool negativeResult{ false };
+
+	if(base < 0){
+		base = -base;
+		negativeResult = (exp & 1);
+	}
+
+	while(exp > 0){
+		if(exp & 1){
+			if(result > std::numeric_limits<std::int64_t>::max() / base){
+				std::cout << "overflow detected...\n";
+				return std::numeric_limits<std::int64_t>::max();
+			}
+			result *= base;
+		}
+		exp /= 2;
+		if(exp <= 0){
+			break;
+		}
+		if(base > std::numeric_limits<std::int64_t>::max() / base){
+			std::cout << "overflow detected...\n";
+			return std::numeric_limits<std::int64_t>::max();
+		}
+		base *= base;
+	}
+	if(negativeResult){
+		result = -result;
+	}
+
+	return result;
+}
+
+void chapter6_3Quiz(){
+	std::cout << "Please enter and integer: \n";
+	int x{};
+	std::cin >> x;
+
+	if(isEven(x)){
+		std::cout << "Even\n";
+	} else {
+		std::cout << "Odd\n";
+	}
+}
