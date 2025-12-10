@@ -341,6 +341,4 @@ void chapter6Quiz(){
 	std::cin >> numApples;
 	
 	std::cout << "You have " << getQuantityPhrase(numApples) << ' ' << getApplesPluralized(numApples) << ".\n";
-
-
 }
