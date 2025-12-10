@@ -13,8 +13,7 @@ int main() {
 
 	//Start
 
-
-	chapter6_3Quiz();
+	chapter6Quiz();
 
 
 

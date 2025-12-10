@@ -51,5 +51,10 @@ constexpr bool epsilonAbsRel(double x, double y, double epsilonRel, double epsil
 	return epsilonRelative(x, y, epsilonRel);
 }
 
+std::string_view getQuantityPhrase(int quantity);
+std::string_view getApplesPluralized(int quantity);
+void chapter6Quiz();
+
+
 
 

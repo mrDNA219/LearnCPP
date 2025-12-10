@@ -306,3 +306,41 @@ void chapter6_3Quiz(){
 		std::cout << "Odd\n";
 	}
 }
+
+std::string_view getQuantityPhrase(int quantity) {
+	if (quantity > 3) {
+		return "many";
+	}
+	if (quantity < 0) {
+		return "negative";
+	}
+	if (quantity == 3) {
+		return "a few";
+	}
+	if (quantity == 2) {
+		return "a couple of";
+	}
+	if (quantity == 1) {
+		return "a single";
+	}
+	return "no";
+}
+
+std::string_view getApplesPluralized(int quantity) {
+	return quantity != 1 ? "apples" : "apple";
+
+}
+
+
+void chapter6Quiz(){
+	constexpr int maryApples{ 3 };
+	std::cout << "Mary has " << getQuantityPhrase(maryApples) << ' ' << getApplesPluralized(maryApples) << ".\n";
+
+	std::cout << "How many apples do you have? ";
+	int numApples{};
+	std::cin >> numApples;
+	
+	std::cout << "You have " << getQuantityPhrase(numApples) << ' ' << getApplesPluralized(numApples) << ".\n";
+
+
+}
