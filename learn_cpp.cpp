@@ -5,24 +5,7 @@
 #include <cmath>
 
 
-
 int main() {	
-
-	auto start = std::chrono::high_resolution_clock::now();
-
-
-	//Start
-
-	chapter6Quiz();
-
-
-
-	//End
-
-	auto end = std::chrono::high_resolution_clock::now();
-	std::chrono::duration<double, std::milli> duration = end - start;
-	std::cout << "\nProgram time: " << duration.count() << "ms\n";
-
 
 	return EXIT_SUCCESS;
 }

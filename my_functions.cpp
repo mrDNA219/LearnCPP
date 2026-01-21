@@ -8,6 +8,7 @@
 #include <limits>
 #include <algorithm>
 
+namespace LearnCPP {
 
 int getNumber() {
 	std::cout << "Please enter an integer: ";
@@ -43,24 +44,6 @@ void signedIntegers() {
 	std::cout << x << "\n";
 	std::cout << "x + 1 is: " << (x + 1) << "\n";
 }
-
-//void unsignedIntegers() {
-//	
-//	unsigned int a{ 2 };
-//	unsigned int b{ 3 };
-//	std::cout << "Don't use unsigned integers... 2 - 3 = " << (a - b) << "\n";
-//	int c{ -1 };
-//	std::cout << "Secondly, and more insidiously, unexpected behavior can result when you mix signed and unsigned integers.\n";
-//	std::cout << "In C++, if a mathematical operation (e.g. arithmetic or comparison) has one signed integer and one unsigned integer, the signed integer will usually be converted to an unsigned integer.\n";
-//	std::cout << "And the result will thus be unsigned. For example:\n";
-//
-//	if (c < a) {
-//		std::cout << c << " is less than " << a << "\n";
-//	}
-//	else {
-//		std::cout << a << " is less than " << c << "\n";
-//	}
-//}
 
 void fixedWidthIntegers() {
 
@@ -331,7 +314,6 @@ std::string_view getApplesPluralized(int quantity) {
 
 }
 
-
 void chapter6Quiz(){
 	constexpr int maryApples{ 3 };
 	std::cout << "Mary has " << getQuantityPhrase(maryApples) << ' ' << getApplesPluralized(maryApples) << ".\n";
@@ -342,3 +324,8 @@ void chapter6Quiz(){
 	
 	std::cout << "You have " << getQuantityPhrase(numApples) << ' ' << getApplesPluralized(numApples) << ".\n";
 }
+
+//EOF
+};
+
+

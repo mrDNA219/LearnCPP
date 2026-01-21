@@ -1,13 +1,14 @@
 #pragma once
 #include <cstdint>
 #include <bitset>
+#include "chapter_7.h"
 
+namespace LearnCPP {
 
 int getNumber();
 void writeAnswer(int num);
 void printSizeOf();
 void signedIntegers();
-void unsignedIntegers();
 void fixedWidthIntegers();
 void floatingPointNumbers();
 void booleanValues();
@@ -54,6 +55,8 @@ constexpr bool epsilonAbsRel(double x, double y, double epsilonRel, double epsil
 std::string_view getQuantityPhrase(int quantity);
 std::string_view getApplesPluralized(int quantity);
 void chapter6Quiz();
+
+}
 
 
 
